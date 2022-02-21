@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model\DataImport;
+namespace sacrpkg\UnokitapiBundle;
 
-use App\Model\DataImport\Repository\RepositoryInterface;
+use sacrpkg\UnokitapiBundle\Repository\RepositoryInterface;
 
 interface DataImportInterface
 {

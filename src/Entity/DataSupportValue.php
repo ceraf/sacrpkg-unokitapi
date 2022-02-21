@@ -2,13 +2,15 @@
 
 namespace sacrpkg\UnokitapiBundle\Entity;
 
-use sacrpkg\UnokitapiBundle\Repository\UnokitRepository;
+use sacrpkg\UnokitapiBundle\Repository\KBRepository;
 
-class Currency implements UnokitEntityInterface
+class DataSupportValue implements KBEntityInterface
 {
     private $id;
     private $uri;
+    private $status;
     private $translations;
+    private $supporting_field_id;
     
     public function getId(): ?int
     {
@@ -21,7 +23,19 @@ class Currency implements UnokitEntityInterface
 
         return $this;
     }     
+    
+    public function getSupportingFieldId(): ?int
+    {
+        return $this->supporting_field_id;
+    }    
+    
+    public function setSupportingFieldId(int $supporting_field_id): self
+    {
+        $this->supporting_field_id = $supporting_field_id;
 
+        return $this;
+    }     
+    
     public function getUri(): ?string
     {
         return $this->uri;
@@ -32,8 +46,20 @@ class Currency implements UnokitEntityInterface
         $this->uri = $uri;
 
         return $this;
-    }
+    }    
     
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }      
+
     public function getTranslations(): ?array
     {
         return $this->translations;
@@ -42,17 +68,17 @@ class Currency implements UnokitEntityInterface
     public function setTranslations(array $translations): self
     {
         $this->translations = $translations;
-        
-        return $this;
-    }
 
+        return $this;
+    }      
+    
     public static function getUrlAddress(): string
     {
-        return '/common/currencies/';
+        return '/projects/data/supporting_field_values';
     }
     
     public static function getRepository(): string
     {
-        return UnokitRepository::class;
+        return KBRepository::class;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace sacrpkg\CrudBundle\DataMapper;
+namespace sacrpkg\UnokitapiBundle\DataMapper;
 
 interface StorageAdapterInterface
 {

@@ -2,12 +2,12 @@
 
 namespace sacrpkg\UnokitapiBundle\Repository;
 
-use sacrpkg\UnokitapiBundle\DataMapper\UnokitMapper;
-use sacrpkg\UnokitapiBundle\DataMapper\UnokitStorage;
+use sacrpkg\UnokitapiBundle\DataMapper\KBMapper;
+use sacrpkg\UnokitapiBundle\DataMapper\KBStorage;
 use sacrpkg\UnokitapiBundle\DataMapper\MapperInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
-class UnokitRepository implements RepositoryInterface
+class KBRepository implements RepositoryInterface
 {
     protected $entityname;
     protected $datamapper;
@@ -18,8 +18,8 @@ class UnokitRepository implements RepositoryInterface
         $this->entityname = $entityname;
         $this->params = $params;
         
-        $api_path = ($this->params->get('unokit_api'))['unokit']['url'];
-        $this->datamapper = new UnokitMapper(new UnokitStorage($api_path.$entityname::getUrlAddress()), $this);
+        $api_path = ($this->params->get('unokit_api'))['kb']['url'];
+        $this->datamapper = new KBMapper(new KBStorage($api_path.$entityname::getUrlAddress()), $this);
     }
     
     public function find(int $id)
@@ -30,7 +30,7 @@ class UnokitRepository implements RepositoryInterface
     }
     
     public function getList(array $where = [], array $sort = [], $limit = 0, $offset = 0, $cache = true): ?array
-    {
+    { 
         $res = null;
         $res = $this->datamapper->getList($where, $sort, $limit, $offset, $cache);
         return $res;

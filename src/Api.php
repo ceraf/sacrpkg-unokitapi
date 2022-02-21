@@ -1,6 +1,6 @@
 <?php
 
-namespace sacrpkg\CrudBundle\Api;
+namespace sacrpkg\UnokitapiBundle;
 
 class Api
 {

@@ -1,0 +1,8 @@
+parameters:
+    unokit_api:
+        unokit:
+            url: https://api.unokit.com/v1
+        kb:
+            url: https://kb.unum.by/api/v1
+
+

@@ -1,6 +1,6 @@
 <?php
 
-namespace sacrpkg\CrudBundle\Entity;
+namespace sacrpkg\UnokitapiBundle\Entity;
 
 interface EntityInterface
 {

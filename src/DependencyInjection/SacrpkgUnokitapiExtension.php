@@ -22,6 +22,7 @@ class SacrpkgUnokitapiExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yaml');
+        $loader->load('unokit_api.yaml');
         
         // создание определения команды
         $commandDefinition = new Definition(TestCommand::class);

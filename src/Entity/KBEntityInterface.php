@@ -2,7 +2,7 @@
 
 namespace sacrpkg\UnokitapiBundle\Entity;
 
-interface UnokitEntityInterface extends EntityInterface
+interface KBEntityInterface extends EntityInterface
 {
     public static function getUrlAddress(): string;
 }

@@ -1,15 +1,27 @@
 <?php
 
-namespace App\Model\DataImport;
+namespace sacrpkg\UnokitapiBundle;
 
-use App\Model\DataImport\Repository\RepositoryInterface;
+use sacrpkg\UnokitapiBundle\Repository\RepositoryInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
 class DataImport implements DataImportInterface
 {
+    private $repositories;
+    
+    public function __construct(ContainerBagInterface $params)
+    {
+        $this->params = $params;
+    }
+    
     public function getRepository($entityname): RepositoryInterface
     {
         $repositoryclass = $entityname::getRepository();
-        return new $repositoryclass($entityname);
+        if (!($this->repositories[$entityname] ?? null)) {
+            $this->repositories[$entityname] = new $repositoryclass($entityname, $this->params);
+        }
+
+        return $this->repositories[$entityname];
     }
     
     public function flush($entity)

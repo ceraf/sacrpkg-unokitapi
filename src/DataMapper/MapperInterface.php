@@ -1,8 +1,8 @@
 <?php
 
-namespace sacrpkg\CrudBundle\DataMapper;
+namespace sacrpkg\UnokitapiBundle\DataMapper;
 
-use sacrpkg\CrudBundle\Repository\RepositoryInterface;
+use sacrpkg\UnokitapiBundle\Repository\RepositoryInterface;
 
 interface MapperInterface
 {
@@ -11,4 +11,6 @@ interface MapperInterface
     public function findById(int $id);
     
     public function findBy($where = [], $orderby = [], $limit = 0, $offset = 0);
+    
+    public function getList($where = [], $orderby = [], $limit = 0, $offset = 0, $cache);
 }

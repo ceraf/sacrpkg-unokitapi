@@ -1,1 +1,8 @@
 services:
+    unokit_api.dataimport:
+        class: sacrpkg\UnokitapiBundle\DataImport
+        public: true
+        arguments:
+            - '@parameter_bag'
+
+    sacrpkg\UnokitapiBundle\DataImportInterface: '@unokit_api.dataimport'

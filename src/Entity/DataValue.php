@@ -2,13 +2,15 @@
 
 namespace sacrpkg\UnokitapiBundle\Entity;
 
-use sacrpkg\UnokitapiBundle\Repository\UnokitRepository;
+use sacrpkg\UnokitapiBundle\Repository\KBRepository;
 
-class Currency implements UnokitEntityInterface
+class DataValue implements KBEntityInterface
 {
     private $id;
     private $uri;
+    private $status;
     private $translations;
+    private $projects;
     
     public function getId(): ?int
     {
@@ -21,7 +23,7 @@ class Currency implements UnokitEntityInterface
 
         return $this;
     }     
-
+    
     public function getUri(): ?string
     {
         return $this->uri;
@@ -32,8 +34,20 @@ class Currency implements UnokitEntityInterface
         $this->uri = $uri;
 
         return $this;
-    }
+    }    
     
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }      
+
     public function getTranslations(): ?array
     {
         return $this->translations;
@@ -42,17 +56,29 @@ class Currency implements UnokitEntityInterface
     public function setTranslations(array $translations): self
     {
         $this->translations = $translations;
-        
+
         return $this;
+    }      
+    
+    public function getProjects(): ?array
+    {
+        return $this->projects;
     }
 
+    public function setProjects(array $projects): self
+    {
+        $this->projects = $projects;
+
+        return $this;
+    }   
+    
     public static function getUrlAddress(): string
     {
-        return '/common/currencies/';
+        return '/projects/data/values';
     }
     
     public static function getRepository(): string
     {
-        return UnokitRepository::class;
+        return KBRepository::class;
     }
 }

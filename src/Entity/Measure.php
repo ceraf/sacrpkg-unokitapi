@@ -1,8 +1,8 @@
 <?php
 
-namespace sacrpkg\CrudBundle\Entity;
+namespace sacrpkg\UnokitapiBundle\Entity;
 
-use sacrpkg\CrudBundle\Repository\UnokitRepository;
+use sacrpkg\UnokitapiBundle\Repository\UnokitRepository;
 
 class Measure implements UnokitEntityInterface
 {

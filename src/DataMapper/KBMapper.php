@@ -4,11 +4,11 @@ namespace sacrpkg\UnokitapiBundle\DataMapper;
 
 use sacrpkg\UnokitapiBundle\Repository\RepositoryInterface;
 
-class UnokitMapper implements MapperInterface
+class KBMapper implements MapperInterface
 {
     private $adapter;
     private $repository;
-    private $cache_list = [];
+    private $cache_list;
     private $objects = [];
     
     public function __construct(StorageAdapterInterface $adapter, RepositoryInterface $repository)
@@ -21,7 +21,7 @@ class UnokitMapper implements MapperInterface
     {
         $cache_key = $this->repository->getEntityClass().'_'.$id;
         if ($this->objects[$id] ?? null) {
-            return $this->objects[$id];
+            return $this->objects[$cache_key];
         }
         
         $data = $this->adapter->findById($id);
@@ -36,9 +36,9 @@ class UnokitMapper implements MapperInterface
                 }
             }
             $res = $entity;
-            $this->objects[$id] = $res;
+            $this->objects[$cache_key] = $res;
         }
-
+        
         return $res;
     }
     
@@ -56,14 +56,14 @@ class UnokitMapper implements MapperInterface
         if ($data) {
             $res = $data;
         }
-        
+
         if ($cache) {
             $this->cache_list[$cache_key] = $res;
         }
         
         return $res;
-    }   
-
+    }    
+    
     public function findBy($where = [], $orderby = [], $limit = 0, $offset = 0)
     {
         $data = $this->adapter->findBy($where, $orderby, $limit);

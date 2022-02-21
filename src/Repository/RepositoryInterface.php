@@ -1,13 +1,12 @@
 <?php
 
-namespace sacrpkg\CrudBundle\Repository;
+namespace sacrpkg\UnokitapiBundle\Repository;
 
-use sacrpkg\CrudBundle\DataMapper\MapperInterface;
+use sacrpkg\UnokitapiBundle\DataMapper\MapperInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
 interface RepositoryInterface
 {
-    public function __construct($entityname);
-    
     public function find(int $id);
     
     public function findBy(array $where = [], array $sort = [], $limit = 0, $offset = 0): ?array;

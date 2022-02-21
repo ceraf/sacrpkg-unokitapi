@@ -4,7 +4,7 @@ namespace sacrpkg\UnokitapiBundle\DataMapper;
 
 use sacrpkg\UnokitapiBundle\Api;
 
-class UnokitStorage implements StorageAdapterInterface
+class KBStorage implements StorageAdapterInterface
 {
     private $api;
     private $address;
@@ -37,7 +37,7 @@ class UnokitStorage implements StorageAdapterInterface
         $procset = [
             'type' => 'list'
         ];     
-
+        
         $this->api->setMethod(Api::METHOD_GET)
             ->setUrl($this->address.'?id='.$id)
             ->setParams([])
@@ -65,7 +65,7 @@ class UnokitStorage implements StorageAdapterInterface
             if (!empty($where))
                 $procset['where'] = $where;
         }
-        
+
         $this->api->setMethod(Api::METHOD_GET)
             ->setUrl($this->address)
             ->setParams($params)
