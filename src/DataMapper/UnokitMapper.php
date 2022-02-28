@@ -42,7 +42,7 @@ class UnokitMapper implements MapperInterface
         return $res;
     }
     
-    public function getList($where = [], $orderby = [], $limit = 0, $offset = 0, $cache)
+    public function getList($where = [], $orderby = [], $limit = 0, $offset = 0, $cache = true)
     {
         $hash = md5(serialize($where).serialize($orderby).serialize($limit).serialize($offset));
         $cache_key = $this->repository->getEntityClass().'_'.$hash;
