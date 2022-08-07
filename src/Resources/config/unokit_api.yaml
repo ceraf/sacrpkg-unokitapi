@@ -4,5 +4,7 @@ parameters:
             url: https://api.unokit.com/v1
         kb:
             url: https://kb.unum.by/api/v1
+        ext_user:
+            url: https://users.unum.by/api/system
 
 

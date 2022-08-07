@@ -142,6 +142,8 @@ class Api
             $code = $pagedata['code'];
             if (in_array($code, [200,201,202])) {
                 $content = json_decode($pagedata['response'], true);
+
+                $this->response = $content;
                 if (count($content['data'] ?? [])) {
                     $pageres = $content['data'];
                     if ($limit && (($num + count($pageres)) > $limit)) {
