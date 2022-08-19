@@ -12,5 +12,5 @@ interface MapperInterface
     
     public function findBy($where = [], $orderby = [], $limit = 0, $offset = 0);
     
-    public function getList($where = [], $orderby = [], $limit = 0, $offset = 0, $cache);
+    public function getList($where = [], $orderby = [], $limit = 0, $offset = 0, $cache = true);
 }
