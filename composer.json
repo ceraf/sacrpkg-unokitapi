@@ -1,23 +1,23 @@
 {
     "type": "symfony-bundle",
     "name": "sacrpkg/unokitapi-bundle",
-    "description": "Unokit API Bundle",    
+    "description": "Unokit API Bundle",
     "license": "MIT",
     "authors": [
         {
             "name": "Oleg Bruyako",
             "email": "jonsm2184@gmail.com",
-            "role": "Developer"        
+            "role": "Developer"
         }
     ],
     "require": {
         "php": ">=8.0.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "symfony/dotenv": "6.0.*",
+        "symfony/dotenv": "7.*",
         "symfony/flex": "^2",
-        "symfony/framework-bundle": "6.0.*",
-        "symfony/yaml": "6.0.*"
+        "symfony/framework-bundle": "7.*",
+        "symfony/yaml": "7.*"
     },
     "require-dev": {
     },
@@ -35,7 +35,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.0.*"
+            "require": "7.*"
         }
     },
     "config": {
