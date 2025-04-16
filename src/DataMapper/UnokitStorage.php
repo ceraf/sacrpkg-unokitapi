@@ -51,12 +51,11 @@ class UnokitStorage implements StorageAdapterInterface
     public function findBy($where = [], $orderby = [], $limit = 0, $offset = 0)
     {
         $params = $this->prepareParams($where);
-        //if ($this->tracking->getStartedAt())
-        //    $params[] = 'date[type=publication]:from='.$this->tracking->getStartedAtSearch();
         
         $procset = [
             'type' => 'list',
-            'limit' => $limit
+            'limit' => $limit,
+            'offset' => $offset,
         ];     
         
         if (!empty($orderby)) {

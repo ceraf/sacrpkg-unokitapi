@@ -51,7 +51,12 @@ class UnokitMapper implements MapperInterface
             return $this->cache_list[$cache_key];
         }
 
-        $data = $this->adapter->findBy($where, $orderby, $limit);
+        if (0 === $offset) {
+            $data = $this->adapter->findBy($where, $orderby, $limit);
+        } else {
+            $data = $this->adapter->findBy($where, $orderby, $limit, $offset);
+        }
+
         $res = null;
         if ($data) {
             $res = $data;
