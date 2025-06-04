@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\DataImport\Entity;
+namespace sacrpkg\UnokitapiBundle\Entity;
 
 use sacrpkg\UnokitapiBundle\Entity\UnokitEntityInterface;
 use sacrpkg\UnokitapiBundle\Repository\UnokitRepository;
